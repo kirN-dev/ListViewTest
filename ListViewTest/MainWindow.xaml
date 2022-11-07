@@ -12,6 +12,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
@@ -35,9 +36,16 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackPanel Grid.Row="1" DataContext="{Binding SelectedItem}">
+        <StackPanel Grid.Row="1"  DataContext="{Binding SelectedItem}">
+            <TextBlock Text="Name"/>
             <TextBox Text="{Binding Name}"/>
-            <TextBox Text="{Binding Wieght, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Wieght"/>
+            <TextBox Text="{Binding Wieght}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Button  Content="Add" Command="{Binding Path=AddItemCommand}"/>
+            <Button  Content="Change" Command="{Binding Path=ChangeItemCommand}"/>
+            <Button  Content="Delete" Command="{Binding Path=DeleteItemCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
